@@ -12,7 +12,7 @@
       </svg>
       &nbsp; <span class="goback">Go Back</span>
     </div>
-    <div class="new-feedback">
+    <form class="new-feedback" @submit="checkForm">
       <div class="circle"><span class="white-cross">+</span></div>
       <div class="create">Create New Feedback</div>
 
@@ -36,9 +36,9 @@
       </div>
       <div class="buttons">
         <button class="btn-cancel">Cancel</button>
-        <button class="btn-feedback">+ Add Feedback</button>
+        <button type="submit" class="btn-feedback">+ Add Feedback</button>
       </div>
-    </div>
+    </form>
   </div>
 </template>
 

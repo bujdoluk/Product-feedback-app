@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import NewFeedback from '../views/NewFeedback.vue'
 import EditFeedback from '../views/EditFeedback.vue'
 import Roadmap from '../views/Roadmap.vue'
+import FeedbackDetail from '../views/FeedbackDetail.vue'
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: '/roadmap',
     name: 'Roadmap',
     component: Roadmap
+  },
+  {
+    path: '/feedbackdetail',
+    name: 'FeedbackDetail',
+    component: FeedbackDetail
   },
 ]
 
