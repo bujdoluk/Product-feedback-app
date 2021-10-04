@@ -4,14 +4,18 @@
       <div class="roadmap-navbar-left">
         <div class="left">
           <div class="left-arrow">&lt;</div>
-          <div class="back"><span class="goback">Go Back</span></div>
+          <div class="back">
+            <button class="goback" @click="back">Go Back</button>
+          </div>
         </div>
 
         <div>Roadmap</div>
       </div>
 
       <div class="feedback">
-        <button class="btn-feedback">+ Add Feedback</button>
+        <router-link to="/create">
+          <button class="btn-feedback">+ Add Feedback</button>
+        </router-link>
       </div>
     </div>
 
@@ -83,6 +87,11 @@
 <script>
 export default {
   name: "Roadmap",
+  methods: {
+    back() {
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
 
@@ -146,7 +155,7 @@ export default {
   margin-right: 10px;
 }
 
-.back {
+/* .back {
   height: 20px;
 
   font-style: normal;
@@ -159,7 +168,7 @@ export default {
 
 .back:hover {
   border-bottom: 1px solid white;
-}
+} */
 
 .feedback {
   margin-left: auto;
@@ -328,9 +337,18 @@ export default {
   cursor: pointer;
 }
 
+.vote:active {
+  background-color: #4661e6;
+  color: white;
+}
+
 .vote-number {
   color: #3a4374;
   margin-left: 12.5px;
+}
+
+.vote-number:active {
+  color: white;
 }
 
 .comment-right {
@@ -341,5 +359,22 @@ export default {
 
 .comment-number {
   margin-left: 8px;
+}
+
+.goback a {
+  color: white;
+  height: 20px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.goback a:hover {
+  border-bottom: 1px solid white;
 }
 </style>

@@ -32,7 +32,9 @@
           </div>
         </div>
         <div class="roadmap-view">
-          <div class="roadmap-view-name">View</div>
+          <div class="roadmap-view-name">
+            <router-link to="/roadmap">View</router-link>
+          </div>
           <div class="roadmap-number">2</div>
           <div class="roadmap-number">3</div>
           <div class="roadmap-number">1</div>
@@ -54,24 +56,18 @@
         </div>
         <div class="suggestions-sort">
           Sort by : &nbsp;
-          <select class="suggestions-select" name="sort" id="sort">
-            <option class="custom-option" value="Most Upvotes">
-              Most Upvotes
-            </option>
-            <option class="custom-option" value="Least Upvotes">
-              Least Upvotes
-            </option>
-            <option class="custom-option" value="Most Comments">
-              Most Comments
-            </option>
-            <option class="custom-option" value="Least Comments">
-              Least Comments
-            </option>
+          <select v-model="interaction">
+            <option selected value="Most Upvotes">Most Upvotes</option>
+            <option value="Least Upvotes">Least Upvotes</option>
+            <option value="Most Comments">Most Comments</option>
+            <option value="Least Comments">Least Comments</option>
           </select>
         </div>
 
         <div class="feedback">
-          <button class="btn-feedback">+ Add Feedback</button>
+          <router-link to="/create">
+            <button class="btn-feedback">+ Add Feedback</button>
+          </router-link>
         </div>
       </div>
 
@@ -182,7 +178,9 @@
           <p class="headline-end">
             We love hearing about new ideas that improve our app.
           </p>
-          <button class="btn-feedback">+ Add Feedback</button>
+          <router-link to="/create">
+            <button class="btn-feedback">+ Add Feedback</button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -192,6 +190,11 @@
 <script>
 export default {
   name: "Home",
+  data() {
+    return {
+      interaction: "Most Upvotes",
+    };
+  },
 };
 </script>
 
@@ -308,15 +311,28 @@ p {
 .roadmap-view {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-end;
   gap: 8px;
 }
 
 .roadmap-view-name {
-  color: #4661e6;
-  border-bottom: 1px solid #4661e6;
   margin-bottom: 24px;
+}
+
+a {
+  text-decoration: none;
+  margin-bottom: 24px;
+}
+
+.roadmap-view-name a {
+  color: #4661e6;
+  margin-bottom: 24px;
+}
+
+.roadmap-view-name a:hover {
+  color: #8397f8;
+  cursor: pointer;
+  border-bottom: 1px solid #8397f8;
 }
 
 .roadmap-name {
@@ -405,10 +421,18 @@ p {
   align-items: center;
 }
 
+.suggestions-sort:hover {
+  color: #f2f4fe;
+}
+
 .suggestions-select {
   background-color: #373f68;
   border: none;
   color: white;
+}
+
+select::-ms-expand {
+  display: none;
 }
 
 .custom-option {

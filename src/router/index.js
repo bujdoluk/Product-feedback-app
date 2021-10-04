@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import NewFeedback from '../views/NewFeedback.vue'
+import CreateFeedback from '../views/CreateFeedback.vue'
 import EditFeedback from '../views/EditFeedback.vue'
 import Roadmap from '../views/Roadmap.vue'
 import FeedbackDetail from '../views/FeedbackDetail.vue'
@@ -12,12 +12,12 @@ const routes = [
     component: Home
   },
   {
-    path: '/newfeedback',
-    name: 'NewFeedback',
-    component: NewFeedback
+    path: '/create',
+    name: 'CreateFeedback',
+    component: CreateFeedback
   },
   {
-    path: '/editfeedback',
+    path: '/edit',
     name: 'EditFeedback',
     component: EditFeedback
   },
@@ -35,7 +35,9 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  linkActiveClass: "active",
+  linkExactActiveClass: "exact-active",
 })
 
 export default router

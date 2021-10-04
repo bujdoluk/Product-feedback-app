@@ -1,30 +1,41 @@
 <template>
   <div class="content">
     <div class="back">
-      <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M6 9L2 5l4-4"
-          stroke="#4661E6"
-          stroke-width="2"
-          fill="none"
-          fill-rule="evenodd"
-        />
-      </svg>
-      &nbsp; <span class="goback">Go Back</span>
+      <div>
+        <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6 9L2 5l4-4"
+            stroke="#4661E6"
+            stroke-width="2"
+            fill="none"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+
+      <div class="goback">
+        <button class="goback" @click="back">Go Back</button>
+      </div>
     </div>
-    <form class="new-feedback" @submit="checkForm">
+    <form class="new-feedback" @submit.prevent="handleSubmit">
       <div class="circle"><span class="white-cross">+</span></div>
       <div class="create">Create New Feedback</div>
 
       <div class="title">
         <h4>Feedback Title</h4>
         <label for="title">Add a short, descriptive headline</label>
-        <input type="text" />
+        <input type="text" required v-model="title" />
       </div>
       <div class="category">
         <h4>Category</h4>
         <label for="category">Choose a category for your feedback</label>
-        <input type="text" />
+        <select v-model="category">
+          <option selected value="Feature">Feature</option>
+          <option value="UI">UI</option>
+          <option value="UX">UX</option>
+          <option value="Enhancement">Enhancement</option>
+          <option value="Bug">Bug</option>
+        </select>
       </div>
       <div class="detail">
         <h4>Feedback Detail</h4>
@@ -32,7 +43,7 @@
           >Include any specific comments on what should be improved, added,
           etc.</label
         >
-        <input type="text" class="textarea" />
+        <input type="text" class="textarea" v-model="detail" />
       </div>
       <div class="buttons">
         <button class="btn-cancel">Cancel</button>
@@ -43,8 +54,31 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import "vue-router";
+
 export default {
   name: "NewFeedback",
+  methods: {
+    back() {
+      this.$router.go(-1);
+    },
+  },
+  setup() {
+    const title = ref("");
+    const category = ref("");
+    const detail = ref("");
+
+    const handleSubmit = () => {
+      console.log(title.value, category.value, detail.value);
+    };
+
+    const back = () => {
+      this.$router.go(-1);
+    };
+
+    return { title, category, detail, handleSubmit };
+  },
 };
 </script>
 
@@ -83,11 +117,15 @@ export default {
   color: #647196;
   font-weight: bold;
   margin-bottom: 62px;
+
+  display: flex;
+  flex-direction: row;
 }
 
-.goback:hover {
-  cursor: pointer;
-  border-bottom: 1px solid #647196;
+.goback {
+  width: 70px;
+  height: 20px;
+  margin-left: 16px;
 }
 
 .new-feedback {
@@ -199,5 +237,17 @@ input:active {
 .btn-feedback:hover {
   background-color: #c75af6;
   cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: #647196;
+  font-weight: bold;
+  margin-bottom: 62px;
+}
+
+a:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #647196;
 }
 </style>

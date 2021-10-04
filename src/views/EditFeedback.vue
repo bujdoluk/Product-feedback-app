@@ -54,12 +54,23 @@
       <div class="category">
         <h4>Category</h4>
         <label for="category">Choose a category for your feedback</label>
-        <input type="text" />
+        <select v-model="category">
+          <option selected value="Feature">Feature</option>
+          <option value="UI">UI</option>
+          <option value="UX">UX</option>
+          <option value="Enhancement">Enhancement</option>
+          <option value="Bug">Bug</option>
+        </select>
       </div>
       <div class="status">
         <h4>Update Status</h4>
         <label for="status">Change feedback state</label>
-        <input type="text" />
+        <select v-model="status">
+          <option selected value="Suggestion">Suggestion</option>
+          <option value="Planned">Planned</option>
+          <option value="In-Progress">In-Progress</option>
+          <option value="Live">Live</option>
+        </select>
       </div>
       <div class="detail">
         <h4>Feedback Detail</h4>
@@ -86,6 +97,12 @@
 <script>
 export default {
   name: "EditFeedback",
+  data() {
+    return {
+      status: "Suggestion",
+      category: "Feature",
+    };
+  },
 };
 </script>
 
