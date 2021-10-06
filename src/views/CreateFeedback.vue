@@ -70,12 +70,18 @@ export default {
     const detail = ref("");
 
     const handleSubmit = () => {
-      console.log(title.value, category.value, detail.value);
+      const newSuggestion = {
+        id: Math.floor(Math.random() * 100000),
+        title: title.value,
+        category: category.value,
+        detail: detail.value,
+      };
+      console.log(newSuggestion);
     };
 
-    const back = () => {
-      this.$router.go(-1);
-    };
+    // const back = () => {
+    //   this.$router.go(-1);
+    // };
 
     return { title, category, detail, handleSubmit };
   },
