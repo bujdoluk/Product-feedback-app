@@ -63,6 +63,44 @@
             </div>
           </div>
         </div>
+
+        <div class="suggestion">
+          <div class="suggestion-status">
+            <div class="beige-dot"></div>
+            <div class="grey">Planned</div>
+          </div>
+          <h3 class="bold-dark-blue h3">More comprehensive report</h3>
+          <div class="grey p">
+            It would be great to see more detailed breakdown of solutions.
+          </div>
+          <div class="tags">
+            <div class="tag">Feature</div>
+          </div>
+          <div class="comments">
+            <div class="vote">
+              <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1 6l4-4 4 4"
+                  stroke="#4661E6"
+                  stroke-width="2"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <div class="vote-number">123</div>
+            </div>
+            <div class="bold-dark-blue comment-right">
+              <svg width="18" height="16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2.62 16H1.346l.902-.91c.486-.491.79-1.13.872-1.823C1.036 11.887 0 9.89 0 7.794 0 3.928 3.52 0 9.03 0 14.87 0 18 3.615 18 7.455c0 3.866-3.164 7.478-8.97 7.478-1.017 0-2.078-.137-3.025-.388A4.705 4.705 0 012.62 16z"
+                  fill="#CDD2EE"
+                  fill-rule="nonzero"
+                />
+              </svg>
+              <div class="comment-number">2</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="roadmap-progress">
         <div class="status">
@@ -70,7 +108,43 @@
           <div class="grey">Currently being developed</div>
         </div>
 
-        <div class="suggestion"></div>
+        <div class="suggestion">
+          <div class="suggestion-status">
+            <div class="purple-dot"></div>
+            <div class="grey">In-Progress</div>
+          </div>
+          <h3 class="bold-dark-blue h3">More comprehensive report</h3>
+          <div class="grey p">
+            It would be great to see more detailed breakdown of solutions.
+          </div>
+          <div class="tags">
+            <div class="tag">Feature</div>
+          </div>
+          <div class="comments">
+            <div class="vote">
+              <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1 6l4-4 4 4"
+                  stroke="#4661E6"
+                  stroke-width="2"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <div class="vote-number">123</div>
+            </div>
+            <div class="bold-dark-blue comment-right">
+              <svg width="18" height="16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2.62 16H1.346l.902-.91c.486-.491.79-1.13.872-1.823C1.036 11.887 0 9.89 0 7.794 0 3.928 3.52 0 9.03 0 14.87 0 18 3.615 18 7.455c0 3.866-3.164 7.478-8.97 7.478-1.017 0-2.078-.137-3.025-.388A4.705 4.705 0 012.62 16z"
+                  fill="#CDD2EE"
+                  fill-rule="nonzero"
+                />
+              </svg>
+              <div class="comment-number">2</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="roadmap-live">
         <div class="status">
@@ -78,7 +152,43 @@
           <div class="grey">Released features</div>
         </div>
 
-        <div class="suggestion"></div>
+        <div class="suggestion">
+          <div class="suggestion-status">
+            <div class="blue-dot"></div>
+            <div class="grey">Live</div>
+          </div>
+          <h3 class="bold-dark-blue h3">More comprehensive report</h3>
+          <div class="grey p">
+            It would be great to see more detailed breakdown of solutions.
+          </div>
+          <div class="tags">
+            <div class="tag">Feature</div>
+          </div>
+          <div class="comments">
+            <div class="vote">
+              <svg width="10" height="7" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M1 6l4-4 4 4"
+                  stroke="#4661E6"
+                  stroke-width="2"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <div class="vote-number">123</div>
+            </div>
+            <div class="bold-dark-blue comment-right">
+              <svg width="18" height="16" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2.62 16H1.346l.902-.91c.486-.491.79-1.13.872-1.823C1.036 11.887 0 9.89 0 7.794 0 3.928 3.52 0 9.03 0 14.87 0 18 3.615 18 7.455c0 3.866-3.164 7.478-8.97 7.478-1.017 0-2.078-.137-3.025-.388A4.705 4.705 0 012.62 16z"
+                  fill="#CDD2EE"
+                  fill-rule="nonzero"
+                />
+              </svg>
+              <div class="comment-number">2</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -103,8 +213,6 @@ export default {
   margin: 0 auto;
   max-width: 1110px;
   padding-top: 94px;
-  padding-left: 165px;
-  padding-right: 165px;
 
   display: flex;
   flex-direction: row;
@@ -112,6 +220,13 @@ export default {
   font-family: "Jost";
 
   position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+  .home {
+    width: 768px;
+    padding-top: 56px;
+  }
 }
 
 .roadmap-navbar {
@@ -128,6 +243,16 @@ export default {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .roadmap-navbar {
+    position: absolute;
+    width: 689px;
+    height: 113px;
+    top: 56px;
+    left: 39px;
+  }
 }
 
 .roadmap-navbar-left {
@@ -199,6 +324,13 @@ export default {
   margin: 150px auto;
 }
 
+@media only screen and (max-width: 768px) {
+  .roadmap {
+    margin: 150px 39px 0 39px;
+    gap: 10px;
+  }
+}
+
 .status {
   margin-bottom: 32px;
   line-height: 10px;
@@ -213,6 +345,14 @@ export default {
 
   display: flex;
   flex-direction: column;
+  margin-bottom: 16px;
+}
+
+@media only screen and (max-width: 768px) {
+  .suggestion {
+    max-width: 223px;
+    max-height: 251px;
+  }
 }
 
 .suggestion-status {
@@ -223,15 +363,33 @@ export default {
   padding: 25px 32px 0 32px;
 }
 
+@media only screen and (max-width: 768px) {
+  .suggestion-status {
+    padding: 26px 0 0 20px;
+  }
+}
+
 .grey {
   font-size: 16px;
   color: #647196;
   line-height: 23px;
 }
 
+@media only screen and (max-width: 768px) {
+  .grey {
+    font-size: 13px;
+  }
+}
+
 .h3 {
   padding: 0 32px;
   margin-bottom: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+  .h3 {
+    padding: 0 20px;
+  }
 }
 
 .h3:hover {
@@ -243,10 +401,22 @@ export default {
   padding: 0 32px;
 }
 
+@media only screen and (max-width: 768px) {
+  .p {
+    padding: 0 20px;
+  }
+}
+
 .bold-dark-blue {
   color: #3a4374;
   font-size: 18px;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+  .bold-dark-blue {
+    font-size: 13px;
+  }
 }
 
 .beige-dot {
@@ -284,6 +454,12 @@ export default {
   margin: 16px 32px 32px 32px;
 }
 
+@media only screen and (max-width: 768px) {
+  .comments {
+    margin: 16px 20px 32px 20px;
+  }
+}
+
 .tags {
   border-radius: 10px;
   background-color: white;
@@ -300,6 +476,12 @@ export default {
   margin-top: 6px;
 }
 
+@media only screen and (max-width: 768px) {
+  .tags {
+    padding: 0 20px;
+  }
+}
+
 .tag {
   background-color: rgb(242, 244, 255);
   color: #4661e6;
@@ -312,6 +494,15 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 3px 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .tag {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 19px;
+  }
 }
 
 .tag:hover {
@@ -330,6 +521,12 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 3px 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .vote {
+    height: 32px;
+  }
 }
 
 .vote:hover {

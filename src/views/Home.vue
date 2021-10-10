@@ -8,12 +8,14 @@
         </div>
       </div>
       <div class="tags">
-        <div class="tag-element">All</div>
-        <div class="tag-element">UI</div>
-        <div class="tag-element">UX</div>
-        <div class="tag-element">Enhancement</div>
-        <div class="tag-element">Bug</div>
-        <div class="tag-element">Feature</div>
+        <div class="tags-container">
+          <div class="tag-element">All</div>
+          <div class="tag-element">UI</div>
+          <div class="tag-element">UX</div>
+          <div class="tag-element">Enhancement</div>
+          <div class="tag-element">Bug</div>
+          <div class="tag-element">Feature</div>
+        </div>
       </div>
       <div class="roadmap">
         <div class="roadmap-status">
@@ -45,7 +47,12 @@
     <div class="suggestions">
       <div class="suggestions-navbar">
         <div class="sugestions-img">
-          <svg width="23" height="24" xmlns="http://www.w3.org/2000/svg">
+          <svg
+            class="suggestion-svg"
+            width="23"
+            height="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <path
               d="M11.5 2.274c2.237 0 4.339.854 5.923 2.408a8.123 8.123 0 012.465 5.839 8.084 8.084 0 01-1.7 4.979 8.457 8.457 0 01-3.652 2.71l-.31.112.003.826h.369c.262 0 .475.21.475.469a.47.47 0 01-.39.46l-.085.008h-.365l.004 1.02h.36c.263 0 .476.21.476.469a.47.47 0 01-.39.461l-.085.008h-.358l.006 1.487a.466.466 0 01-.381.46l-.094.01H9.23a.478.478 0 01-.466-.378l-.01-.092.006-1.487h-.357a.472.472 0 01-.475-.47.47.47 0 01.39-.46l.085-.008h.361l.004-1.02h-.365a.472.472 0 01-.475-.468.47.47 0 01.39-.462l.085-.007h.368l.004-.826a8.452 8.452 0 01-3.996-2.867 8.08 8.08 0 01-1.666-5.056c.032-2.127.923-4.152 2.511-5.7 1.508-1.471 3.448-2.322 5.493-2.416l.324-.009h.06zm1.791 19.769H9.709l-.004 1.02h3.59l-.004-1.02zm-.007-1.958H9.716l-.003 1.02h3.574l-.003-1.02zM11.5 3.212h-.054c-3.946.027-7.327 3.325-7.384 7.2-.048 3.266 2.14 6.192 5.322 7.118.174.05.3.193.332.364l.008.088-.004 1.166h3.56l-.004-1.166a.47.47 0 01.34-.452c3.134-.912 5.323-3.794 5.323-7.01a7.197 7.197 0 00-2.185-5.173A7.453 7.453 0 0011.5 3.212zm.829 1.782a.4.4 0 01.401.397v.322c.48.12.932.307 1.346.552l.228-.226a.405.405 0 01.569 0L16.046 7.2a.393.393 0 010 .56l-.23.228c.247.41.437.858.557 1.333h.323a.4.4 0 01.402.397v1.645a.4.4 0 01-.402.396h-.323c-.12.476-.31.924-.557 1.333l.23.228a.393.393 0 010 .56l-1.173 1.163a.405.405 0 01-.57 0l-.227-.227a5.02 5.02 0 01-1.346.553v.322a.4.4 0 01-.401.396H10.67a.4.4 0 01-.402-.396v-.322a5.022 5.022 0 01-1.345-.553l-.228.227a.405.405 0 01-.569 0L6.954 13.88a.393.393 0 010-.56l.23-.228a4.924 4.924 0 01-.557-1.333h-.324a.4.4 0 01-.401-.396V9.719a.4.4 0 01.401-.397h.324c.12-.475.31-.923.557-1.333l-.23-.228a.393.393 0 010-.56L8.127 6.04a.405.405 0 01.569 0l.228.226a5.021 5.021 0 011.345-.552V5.39a.4.4 0 01.402-.397zM11.5 7.721c-1.572 0-2.846 1.263-2.846 2.82 0 1.558 1.274 2.82 2.846 2.82s2.846-1.262 2.846-2.82c0-1.557-1.274-2.82-2.846-2.82zm11.025 4.152c.262 0 .475.21.475.469a.47.47 0 01-.39.461l-.085.008h-.498a.472.472 0 01-.475-.469.47.47 0 01.39-.461l.085-.008h.498zm-21.552 0c.262 0 .475.21.475.469a.47.47 0 01-.39.461l-.085.008H.475A.472.472 0 010 12.342a.47.47 0 01.39-.461l.085-.008h.498zM3.112 3.45l.074.06.46.451c.185.183.186.48 0 .663a.476.476 0 01-.596.062l-.075-.06-.459-.451a.465.465 0 01-.001-.663.48.48 0 01.597-.062zm17.373.062c.162.16.182.408.06.59l-.061.073-.46.45a.476.476 0 01-.67 0 .464.464 0 01-.06-.59l.06-.074.46-.45a.48.48 0 01.671 0zM11.5 0c.233 0 .427.166.467.384l.008.085v.49a.472.472 0 01-.475.468.473.473 0 01-.467-.384l-.008-.084v-.49c0-.26.213-.469.475-.469z"
               fill="#FFF"
@@ -174,10 +181,12 @@
         </div>
         <div class="empty-content">
           <div class="headline">There is no feedback yet.</div>
-          <p>Got a suggestion? Found a bug that needs to be squashed?</p>
-          <p class="headline-end">
+          <div class="grey-content">
+            Got a suggestion? Found a bug that needs to be squashed?
+          </div>
+          <div class="headline-end grey-content">
             We love hearing about new ideas that improve our app.
-          </p>
+          </div>
           <router-link to="/create">
             <button class="btn-feedback">+ Add Feedback</button>
           </router-link>
@@ -206,14 +215,33 @@ export default {
   margin: 0 auto;
   max-width: 1110px;
   padding-top: 94px;
-  padding-left: 165px;
-  padding-right: 165px;
 
   display: flex;
   flex-direction: row;
   gap: 30px;
   font-family: "Jost";
 }
+
+@media only screen and (max-width: 768px) {
+  .home {
+    width: 689px;
+    margin: 0 auto;
+
+    flex-direction: column;
+    gap: 40px;
+    padding-top: 56px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .home {
+    width: 375px;
+    margin: 0;
+    padding-top: 0;
+    gap: 0;
+  }
+}
+
 .sidepanel {
   height: 529px;
   width: 255px;
@@ -224,6 +252,23 @@ export default {
   border-radius: 10px;
 }
 
+@media only screen and (max-width: 768px) {
+  .sidepanel {
+    height: 178px;
+    width: 689px;
+    flex-direction: row;
+    gap: 10px;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .sidepanel {
+    height: 72px;
+    width: 375px;
+  }
+}
+
 .board-logo {
   background-image: url("../assets/suggestions/desktop/background-header.png");
   border-radius: 10px;
@@ -231,6 +276,23 @@ export default {
   height: 137px;
   color: white;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+  .board-logo {
+    min-width: 223px;
+    height: 178px;
+    background-size: cover;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .board-logo {
+    min-width: 375px;
+    height: 72px;
+    background-size: cover;
+    border-radius: 0;
+  }
 }
 
 .board-name {
@@ -243,14 +305,33 @@ export default {
   line-height: 0.25;
 }
 
+@media only screen and (max-width: 768px) {
+  .board-name {
+    padding-left: 24px;
+    padding-top: 103px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .board-name {
+    padding: 16px 24px;
+    line-height: 0;
+  }
+}
+
 h3 {
   font-weight: bold;
 }
 
-p {
+h4 {
+  font-weight: 500;
+  font-style: normal;
+}
+
+.grey-content {
   font-weight: 300;
   color: #647196;
-  line-height: 5px;
+  font-style: normal;
 }
 
 .tags {
@@ -258,13 +339,23 @@ p {
   background-color: white;
   max-width: 255px;
   height: 166px;
-
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 24px;
-  gap: 5px;
   font-family: "Jost";
+}
+
+@media only screen and (max-width: 768px) {
+  .tags {
+    min-width: 223px;
+    max-height: 178px;
+    padding: 6px 0;
+  }
+
+  .tags-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 24px 18px 36px 24px;
+    gap: 5px;
+  }
 }
 
 .tag-element {
@@ -281,6 +372,12 @@ p {
   padding: 3px 10px;
 }
 
+@media only screen and (max-width: 768px) {
+  .tag-element {
+    padding: 3px 10px;
+  }
+}
+
 .tag-element:hover {
   background-color: #cfd7ff;
   cursor: pointer;
@@ -293,13 +390,21 @@ p {
 }
 
 .roadmap {
+  width: 255px;
+  height: 178px;
   background-color: white;
   border-radius: 10px;
 
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 24px;
+}
+
+@media only screen and (max-width: 768px) {
+  .roadmap {
+    min-width: 223px;
+    max-height: 178px;
+  }
 }
 
 .roadmap-status {
@@ -308,11 +413,23 @@ p {
   gap: 8px;
 }
 
+@media only screen and (max-width: 768px) {
+  .roadmap-status {
+    padding: 24px 0 24px 24px;
+  }
+}
+
 .roadmap-view {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 8px;
+}
+
+@media only screen and (max-width: 768px) {
+  .roadmap-view {
+    padding: 24px;
+  }
 }
 
 .roadmap-view-name {
@@ -398,6 +515,21 @@ a {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 768px) {
+  .suggestions-navbar {
+    width: 689px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .suggestions-navbar {
+    width: 375px;
+    max-height: 56px;
+    align-items: center;
+    border-radius: 0;
+  }
+}
+
 .sugestions-img {
   color: white;
   margin: 14px 24px;
@@ -407,10 +539,26 @@ a {
   align-items: center;
 }
 
+@media only screen and (max-width: 375px) {
+  .suggestions-img {
+    display: none;
+  }
+
+  .suggestion-svg {
+    display: none;
+  }
+}
+
 .suggestions-count {
   margin-left: 16px;
   font-weight: bold;
   font-size: 18px;
+}
+
+@media only screen and (max-width: 375px) {
+  .suggestions-count {
+    display: none;
+  }
 }
 
 .suggestions-sort {
@@ -419,6 +567,13 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 375px) {
+  .suggestions-sort {
+    font-size: 13px;
+    justify-content: space-around;
+  }
 }
 
 .suggestions-sort:hover {
@@ -457,6 +612,13 @@ select::-ms-expand {
   font-weight: bold;
 }
 
+@media only screen and (max-width: 375px) {
+  .btn-feedback {
+    width: 134px;
+    height: 40px;
+  }
+}
+
 .btn-feedback:hover {
   background-color: #c75af6;
   cursor: pointer;
@@ -474,8 +636,27 @@ select::-ms-expand {
   justify-content: center;
 }
 
+@media only screen and (max-width: 768px) {
+  .empty {
+    width: 689px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .empty {
+    width: 327px;
+    margin: 0 auto;
+  }
+}
+
 .empty-content {
   text-align: center;
+}
+
+@media only screen and (max-width: 375px) {
+  .empty-content {
+    padding: 0 25px 0 25px;
+  }
 }
 
 .headline {
@@ -484,6 +665,14 @@ select::-ms-expand {
   font-size: 24px;
   margin-bottom: 16px;
   margin-top: 53px;
+}
+
+@media only screen and (max-width: 375px) {
+  .headline {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 20px;
+  }
 }
 
 .headline-end {

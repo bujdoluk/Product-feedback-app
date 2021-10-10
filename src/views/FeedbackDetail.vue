@@ -123,6 +123,14 @@ export default {
   font-family: "Jost";
 }
 
+@media only screen and (max-width: 768px) {
+  .content {
+    width: 689px;
+    margin: 0 40px;
+    padding-top: 68px;
+  }
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -173,6 +181,12 @@ export default {
 
   display: flex;
   flex-direction: column;
+}
+
+@media only screen and (max-width: 768px) {
+  .suggestion {
+    max-width: 689px;
+  }
 }
 
 .suggestion-detail {
@@ -263,6 +277,12 @@ export default {
   justify-content: flex-end;
 }
 
+@media only screen and (max-width: 768px) {
+  .comments {
+    margin-right: 64px;
+  }
+}
+
 .comment-right {
   display: flex;
   flex-direction: row;
@@ -280,6 +300,12 @@ export default {
   background-color: white;
   margin-top: 23px;
   border-radius: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .comments-section {
+    min-width: 689px;
+  }
 }
 
 .comments-headline {
@@ -311,6 +337,12 @@ export default {
   flex-direction: row;
   align-items: center;
   width: 594px;
+}
+
+@media only screen and (max-width: 768px) {
+  .comment-name {
+    width: 553px;
+  }
 }
 
 .comment-email {
@@ -346,6 +378,12 @@ export default {
   margin-top: 24px;
 }
 
+@media only screen and (max-width: 768px) {
+  .add-comment {
+    max-width: 689px;
+  }
+}
+
 textarea {
   background: #f7f8fd;
   margin: 0 34px;
@@ -359,6 +397,12 @@ textarea {
 
   resize: none;
   padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  textarea {
+    width: 593px;
+  }
 }
 
 textarea:focus::placeholder {
@@ -386,6 +430,12 @@ textarea:focus::placeholder {
   color: white;
   font-weight: bold;
   margin-right: 34px;
+}
+
+@media only screen and (max-width: 768px) {
+  .btn-post {
+    margin-right: 40px;
+  }
 }
 
 .btn-post:hover {
