@@ -342,6 +342,15 @@ h4 {
   font-family: "Jost";
 }
 
+.tags-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-start;
+  padding: 24px;
+}
+
 @media only screen and (max-width: 768px) {
   .tags {
     min-width: 223px;
@@ -411,6 +420,7 @@ h4 {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding: 24px 0 24px 24px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -424,6 +434,7 @@ h4 {
   flex-direction: column;
   align-items: flex-end;
   gap: 8px;
+  padding: 24px;
 }
 
 @media only screen and (max-width: 768px) {

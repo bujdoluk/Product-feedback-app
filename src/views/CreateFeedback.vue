@@ -99,6 +99,14 @@ export default {
   font-family: "Jost";
 }
 
+@media only screen and (max-width: 375px) {
+  .content {
+    width: 327px;
+    margin: 0 auto;
+    padding-top: 36px;
+  }
+}
+
 .circle {
   position: absolute;
   top: -24px;
@@ -134,6 +142,12 @@ export default {
   margin-left: 16px;
 }
 
+@media only screen and (max-width: 375px) {
+  .goback {
+    margin-left: 8px;
+  }
+}
+
 .new-feedback {
   background-color: white;
   border-radius: 10px;
@@ -141,6 +155,13 @@ export default {
   padding: 0 42px;
 
   position: relative;
+}
+
+@media only screen and (max-width: 375px) {
+  .new-feedback {
+    padding: 0 24px;
+    height: 708px;
+  }
 }
 
 .create {
@@ -189,6 +210,16 @@ input {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 375px) {
+  input {
+    width: 279px;
+  }
+
+  select {
+    width: 279px;
+  }
+}
+
 input:focus {
   border-color: #3a4374;
 }
@@ -207,12 +238,24 @@ input:active {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 375px) {
+  .textarea {
+    width: 279px;
+  }
+}
+
 .buttons {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   gap: 16px;
   padding-bottom: 43px;
+}
+
+@media only screen and (max-width: 375px) {
+  .buttons {
+    flex-direction: column;
+  }
 }
 
 .btn-cancel {
@@ -223,6 +266,15 @@ input:active {
   color: white;
   border: none;
   background-color: #3a4374;
+}
+
+@media only screen and (max-width: 375px) {
+  .btn-cancel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 279px;
+  }
 }
 
 .btn-cancel:hover {
@@ -238,6 +290,15 @@ input:active {
   background-color: #ad1fea;
   color: white;
   font-weight: bold;
+}
+
+@media only screen and (max-width: 375px) {
+  .btn-feedback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 279px;
+  }
 }
 
 .btn-feedback:hover {

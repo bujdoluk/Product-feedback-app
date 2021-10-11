@@ -88,7 +88,7 @@
       <div class="buttons">
         <button class="btn-delete">Delete</button>
         <button class="btn-cancel">Cancel</button>
-        <button class="btn-feedback">+ Add Feedback</button>
+        <button class="btn-feedback">Save Changes</button>
       </div>
     </div>
   </div>
@@ -117,6 +117,13 @@ export default {
   font-family: "Jost";
 }
 
+@media only screen and (max-width: 375px) {
+  .content {
+    width: 327px;
+    padding-top: 36px;
+  }
+}
+
 .back {
   color: #647196;
   font-weight: bold;
@@ -141,6 +148,13 @@ export default {
   margin-top: 20px;
 
   position: relative;
+}
+
+@media only screen and (max-width: 375px) {
+  .new-feedback {
+    padding: 0 24px;
+    height: 893px;
+  }
 }
 
 .edit {
@@ -194,6 +208,16 @@ input {
   cursor: pointer;
 }
 
+@media only screen and (max-width: 375px) {
+  input {
+    width: 279px;
+  }
+
+  select {
+    width: 279px;
+  }
+}
+
 input:focus {
   border-color: #3a4374;
 }
@@ -210,6 +234,12 @@ input:active {
   border-radius: 5px;
   margin-bottom: 24px;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 375px) {
+  .textarea {
+    width: 279px;
+  }
 }
 
 .buttons {
@@ -264,5 +294,23 @@ input:active {
 .btn-feedback:hover {
   background-color: #c75af6;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 375px) {
+  .buttons {
+    flex-direction: column-reverse;
+  }
+
+  .btn-feedback {
+    width: 279px;
+  }
+
+  .btn-cancel {
+    width: 279px;
+  }
+
+  .btn-delete {
+    width: 279px;
+  }
 }
 </style>

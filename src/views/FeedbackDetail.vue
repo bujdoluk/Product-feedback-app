@@ -131,11 +131,25 @@ export default {
   }
 }
 
+@media only screen and (max-width: 375px) {
+  .content {
+    width: 375px;
+    padding-top: 34px;
+    margin: 0 24px;
+  }
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 375px) {
+  .navbar {
+    width: 327px;
+  }
 }
 
 .goback {
@@ -173,6 +187,12 @@ export default {
   margin-top: 23px;
 }
 
+@media only screen and (max-width: 375px) {
+  .edit-feedback {
+    max-width: 327px;
+  }
+}
+
 .suggestion {
   max-width: 730px;
   max-height: 171px;
@@ -189,6 +209,12 @@ export default {
   }
 }
 
+@media only screen and (max-width: 375px) {
+  .suggestion {
+    max-width: 327px;
+  }
+}
+
 .suggestion-detail {
   width: 730px;
   display: flex;
@@ -196,6 +222,12 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 375px) {
+  .suggestion-detail {
+    max-width: 327px;
+  }
 }
 
 .grey {
@@ -308,6 +340,12 @@ export default {
   }
 }
 
+@media only screen and (max-width: 375px) {
+  .comments-section {
+    min-width: 327px;
+  }
+}
+
 .comments-headline {
   margin: 24px 34px;
   color: #3a4374;
@@ -327,6 +365,12 @@ export default {
   margin: 0 34px;
 }
 
+@media only screen and (max-width: 375px) {
+  .img {
+    margin: 0 16px;
+  }
+}
+
 .comment-details {
   display: flex;
   flex-direction: column;
@@ -342,6 +386,12 @@ export default {
 @media only screen and (max-width: 768px) {
   .comment-name {
     width: 553px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .comment-name {
+    width: 224px;
   }
 }
 
@@ -368,6 +418,11 @@ export default {
   margin-top: 17px;
 }
 
+@media only screen and (max-width: 375px) {
+  .paragraph {
+  }
+}
+
 /* ADD COMMENT SECTION */
 
 .add-comment {
@@ -384,9 +439,15 @@ export default {
   }
 }
 
+@media only screen and (max-width: 375px) {
+  .add-comment {
+    max-width: 327px;
+  }
+}
+
 textarea {
   background: #f7f8fd;
-  margin: 0 34px;
+  margin: 0 24px;
   border: none;
   width: 664px;
   height: 60px;
@@ -401,7 +462,15 @@ textarea {
 
 @media only screen and (max-width: 768px) {
   textarea {
-    width: 593px;
+    width: 603px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  textarea {
+    width: 279px;
+    margin: 0 16px;
+    margin-bottom: 16px;
   }
 }
 
@@ -413,6 +482,12 @@ textarea:focus::placeholder {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+@media only screen and (max-width: 375px) {
+  .post-comment {
+    align-items: center;
+  }
 }
 
 .characters {
@@ -435,6 +510,13 @@ textarea:focus::placeholder {
 @media only screen and (max-width: 768px) {
   .btn-post {
     margin-right: 40px;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .btn-post {
+    width: 119px;
+    margin-right: 24px;
   }
 }
 

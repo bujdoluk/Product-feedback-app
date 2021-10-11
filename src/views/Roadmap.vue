@@ -233,8 +233,8 @@ export default {
   position: absolute;
   width: 1110px;
   height: 113px;
-  left: 165px;
   top: 78px;
+  margin: 0 auto;
 
   background: #373f68;
   border-radius: 10px;
