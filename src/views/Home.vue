@@ -35,7 +35,7 @@
         </div>
         <div class="roadmap-view">
           <div class="roadmap-view-name">
-            <router-link to="/roadmap">View</router-link>
+            <router-link :to="{ name: 'Roadmap' }">View</router-link>
           </div>
           <div class="roadmap-number">2</div>
           <div class="roadmap-number">3</div>
@@ -72,13 +72,21 @@
         </div>
 
         <div class="feedback">
-          <router-link to="/create">
+          <router-link :to="{ name: 'CreateFeedback' }">
             <button class="btn-feedback">+ Add Feedback</button>
           </router-link>
         </div>
       </div>
 
-      <div class="empty">
+      <div v-if="error">{{ error }}</div>
+      <div v-if="suggestions.length" class="suggestion-list">
+        <SuggestionList :suggestions="suggestions" />
+      </div>
+      <!-- <div v-else>
+        <Spinner />
+      </div> -->
+
+      <div class="empty" v-if="!suggestions.length">
         <div>
           <svg width="102" height="108" xmlns="http://www.w3.org/2000/svg">
             <g fill-rule="nonzero" fill="none" opacity=".5">
@@ -187,7 +195,7 @@
           <div class="headline-end grey-content">
             We love hearing about new ideas that improve our app.
           </div>
-          <router-link to="/create">
+          <router-link :to="{ name: 'CreateFeedback' }">
             <button class="btn-feedback">+ Add Feedback</button>
           </router-link>
         </div>
@@ -197,12 +205,25 @@
 </template>
 
 <script>
+import { ref } from "vue";
+import Spinner from "../components/Spinner.vue";
+import SuggestionList from "../components/SuggestionList.vue";
+import getSuggestions from "../composables/getSuggestions";
+
 export default {
   name: "Home",
+  components: { Spinner, SuggestionList },
   data() {
     return {
       interaction: "Most Upvotes",
     };
+  },
+  setup() {
+    const { suggestions, error, load } = getSuggestions();
+
+    load();
+
+    return { suggestions, error };
   },
 };
 </script>
@@ -214,6 +235,7 @@ export default {
   background-color: #f7f8fd;
   margin: 0 auto;
   max-width: 1110px;
+  height: 100vw;
   padding-top: 94px;
 
   display: flex;

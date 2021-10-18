@@ -5,7 +5,9 @@
         <div class="left">
           <div class="left-arrow">&lt;</div>
           <div class="back">
-            <button class="goback" @click="back">Go Back</button>
+            <router-link :to="{ name: 'Home' }">
+              <button class="goback">Go Back</button>
+            </router-link>
           </div>
         </div>
 
@@ -13,7 +15,7 @@
       </div>
 
       <div class="feedback">
-        <router-link to="/create">
+        <router-link :to="{ name: 'CreateFeedback' }">
           <button class="btn-feedback">+ Add Feedback</button>
         </router-link>
       </div>
@@ -31,7 +33,9 @@
             <div class="beige-dot"></div>
             <div class="grey">Planned</div>
           </div>
-          <h3 class="bold-dark-blue h3">More comprehensive report</h3>
+          <router-link :to="{ name: 'FeedbackDetail' }">
+            <h3 class="bold-dark-blue h3">More comprehensive report</h3>
+          </router-link>
           <div class="grey p">
             It would be great to see more detailed breakdown of solutions.
           </div>
@@ -69,7 +73,9 @@
             <div class="beige-dot"></div>
             <div class="grey">Planned</div>
           </div>
-          <h3 class="bold-dark-blue h3">More comprehensive report</h3>
+          <router-link :to="{ name: 'FeedbackDetail' }">
+            <h3 class="bold-dark-blue h3">More comprehensive report</h3>
+          </router-link>
           <div class="grey p">
             It would be great to see more detailed breakdown of solutions.
           </div>
@@ -113,7 +119,9 @@
             <div class="purple-dot"></div>
             <div class="grey">In-Progress</div>
           </div>
-          <h3 class="bold-dark-blue h3">More comprehensive report</h3>
+          <router-link :to="{ name: 'FeedbackDetail' }">
+            <h3 class="bold-dark-blue h3">More comprehensive report</h3>
+          </router-link>
           <div class="grey p">
             It would be great to see more detailed breakdown of solutions.
           </div>
@@ -157,7 +165,9 @@
             <div class="blue-dot"></div>
             <div class="grey">Live</div>
           </div>
-          <h3 class="bold-dark-blue h3">More comprehensive report</h3>
+          <router-link :to="{ name: 'FeedbackDetail' }">
+            <h3 class="bold-dark-blue h3">More comprehensive report</h3>
+          </router-link>
           <div class="grey p">
             It would be great to see more detailed breakdown of solutions.
           </div>

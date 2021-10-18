@@ -14,7 +14,9 @@
       </div>
 
       <div class="goback">
-        <button class="goback" @click="back">Go Back</button>
+        <router-link :to="{ name: 'Home' }">
+          <button class="goback">Go Back</button>
+        </router-link>
       </div>
     </div>
     <form class="new-feedback" @submit.prevent="handleSubmit">
@@ -46,7 +48,9 @@
         <input type="text" class="textarea" v-model="detail" />
       </div>
       <div class="buttons">
-        <button class="btn-cancel">Cancel</button>
+        <router-link :to="{ name: 'Home' }">
+          <button class="btn-cancel">Cancel</button>
+        </router-link>
         <button type="submit" class="btn-feedback">+ Add Feedback</button>
       </div>
     </form>
@@ -55,35 +59,40 @@
 
 <script>
 import { ref } from "vue";
-import "vue-router";
+import { useRouter } from "vue-router";
+import { projectFirestore, timestamp } from "../firebase/config";
 
 export default {
-  name: "NewFeedback",
-  methods: {
-    back() {
-      this.$router.go(-1);
-    },
-  },
+  name: "CreateFeedback",
   setup() {
     const title = ref("");
     const category = ref("");
     const detail = ref("");
 
-    const handleSubmit = () => {
-      const newSuggestion = {
+    const router = useRouter();
+
+    const vote = 0;
+    const comment = 0;
+
+    const handleSubmit = async () => {
+      const suggestion = {
         id: Math.floor(Math.random() * 100000),
         title: title.value,
         category: category.value,
         detail: detail.value,
+        vote: 0,
+        comment: 0,
+        createdAt: timestamp(),
       };
-      console.log(newSuggestion);
+
+      const res = await projectFirestore
+        .collection("suggestions")
+        .add(suggestion);
+
+      router.push({ name: "Home" });
     };
 
-    // const back = () => {
-    //   this.$router.go(-1);
-    // };
-
-    return { title, category, detail, handleSubmit };
+    return { title, category, detail, vote, comment, handleSubmit };
   },
 };
 </script>
