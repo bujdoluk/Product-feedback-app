@@ -14,7 +14,10 @@
     </div>
     <div class="feedback">
       <router-link
-        :to="{ name: 'FeedbackDetail', params: { id: suggestion.id } }"
+        :to="{
+          name: 'FeedbackDetail',
+          params: { id: suggestion.id },
+        }"
       >
         <h3>{{ suggestion.title }}</h3>
       </router-link>
@@ -49,15 +52,13 @@
 <script>
 import { projectFirestore } from "../firebase/config";
 export default {
-  props: ["suggestion", "id"],
-  setup(props) {
-    // const handleVote = () => {
-    //   let res = projectFirestore
+  props: ["suggestion"],
+  setup() {
+    // const handleVote = async () => {
+    //   const res = await projectFirestore
     //     .collection("suggestions")
-    //     .doc("suggestion")
-    //     .udpate({
-    //       vote: vote.value++,
-    //     });
+    //     .doc(id)
+    //     .update({ vote: FieldValue.increment(1) });
     // };
     // return { handleVote };
   },
