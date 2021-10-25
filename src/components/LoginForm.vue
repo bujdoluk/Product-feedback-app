@@ -3,13 +3,14 @@
     <input type="email" required placeholder="email" v-model="email" />
     <input type="password" required placeholder="password" v-model="password" />
     <div class="error">{{ error }}</div>
-    <button>Log in</button>
+    <button class="btn-feedback">Log in</button>
   </form>
 </template>
 
 <script>
 import { ref } from "vue";
 import useLogin from "../composables/useLogin";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
@@ -18,12 +19,15 @@ export default {
     const email = ref("");
     const password = ref("");
 
+    const router = useRouter();
+
     const { error, login } = useLogin();
 
     const handleSubmit = async () => {
       await login(email.value, password.value);
       if (!error.value) {
         console.log("User logged in");
+        router.push("/");
       }
     };
 

@@ -1,4 +1,12 @@
 <template>
+  <nav class="logout" v-if="user">
+    <div class="greeting">
+      <p>Hi there {{ user.displayName }}</p>
+    </div>
+    <div>
+      <button class="btn-logout" @click="handleClick">Log out</button>
+    </div>
+  </nav>
   <div class="content">
     <div class="back">
       <div>
@@ -61,6 +69,8 @@
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { projectFirestore, timestamp } from "../firebase/config";
+import useLogout from "../composables/useLogout";
+import getUser from "../composables/getUser";
 
 export default {
   name: "CreateFeedback",
@@ -70,9 +80,15 @@ export default {
     const detail = ref("");
 
     const router = useRouter();
+    const { logout, errorLogout } = useLogout();
 
     const vote = 0;
-    const comment = 0;
+    const comments_count = 0;
+    const comment_detail = "";
+
+    const { user } = getUser();
+
+    /* Parameters for edit view are initialize here too */
 
     const handleSubmit = async () => {
       const suggestion = {
@@ -81,7 +97,8 @@ export default {
         category: category.value,
         detail: detail.value,
         vote: 0,
-        comment: 0,
+        comments_count: 0,
+        comment_detail: "",
         createdAt: timestamp(),
       };
 
@@ -92,13 +109,65 @@ export default {
       router.push({ name: "Home" });
     };
 
-    return { title, category, detail, vote, comment, handleSubmit };
+    const handleClick = async () => {
+      await logout();
+      if (!errorLogout.value) {
+        console.log("user logged out");
+        router.push("/welcome");
+      }
+    };
+
+    return {
+      title,
+      category,
+      detail,
+      vote,
+      comments_count,
+      comment_detail,
+      handleSubmit,
+      handleClick,
+      errorLogout,
+      user,
+    };
   },
 };
 </script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap");
+
+.logout {
+  width: 100vw;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 -60px;
+  padding-top: 20px;
+}
+
+.btn-logout {
+  width: 70px;
+  height: 40px;
+  background-color: white;
+  box-shadow: 10px solid black;
+  color: rgb(110, 109, 109);
+  border: 1px solid grey;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.btn-logout:hover {
+  color: rgb(165, 163, 163);
+  border: 1px solid rgb(165, 163, 163);
+}
+
+.greeting {
+  font-size: 20px;
+  margin-right: 30px;
+}
+
 .content {
   height: 645px;
   width: 540px;

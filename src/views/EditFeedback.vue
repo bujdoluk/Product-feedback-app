@@ -1,17 +1,27 @@
 <template>
-  <div class="content">
-    <div class="back">
-      <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M6 9L2 5l4-4"
-          stroke="#4661E6"
-          stroke-width="2"
-          fill="none"
-          fill-rule="evenodd"
-        />
-      </svg>
-      &nbsp; <span class="goback">Go Back</span>
+  <nav class="logout" v-if="user">
+    <div class="greeting">
+      <p>Hi there {{ user.displayName }}</p>
     </div>
+    <div>
+      <button class="btn-logout" @click="handleClick">Log out</button>
+    </div>
+  </nav>
+  <div class="content">
+    <router-link :to="{ name: 'FeedbackDetail' }">
+      <div class="back">
+        <svg width="7" height="10" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6 9L2 5l4-4"
+            stroke="#4661E6"
+            stroke-width="2"
+            fill="none"
+            fill-rule="evenodd"
+          />
+        </svg>
+        &nbsp; <span class="goback">Go Back</span>
+      </div>
+    </router-link>
     <div class="new-feedback">
       <svg
         class="pen-image"
@@ -95,19 +105,79 @@
 </template>
 
 <script>
+import useLogout from "../composables/useLogout";
+import { useRoute, useRouter } from "vue-router";
+import getUser from "../composables/getUser";
+import getSuggestion from "../composables/getSuggestion";
+
 export default {
   name: "EditFeedback",
+  methods: {
+    back() {
+      this.$router.go(-1);
+    },
+  },
   data() {
     return {
       status: "Suggestion",
       category: "Feature",
     };
   },
+  setup() {
+    const route = useRoute();
+    const router = useRouter();
+    const { logout, errorLogout } = useLogout();
+    const { user } = getUser();
+    const { suggestion, error, load } = getSuggestion(route.params.id);
+
+    load();
+
+    const handleClick = async () => {
+      await logout();
+      if (!errorLogout.value) {
+        console.log("user logged out");
+        router.push("/welcome");
+      }
+    };
+    return { suggestion, error, handleClick, errorLogout, user };
+  },
 };
 </script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap");
+.logout {
+  width: 100vw;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 -60px;
+  padding-top: 20px;
+}
+
+.btn-logout {
+  width: 70px;
+  height: 40px;
+  background-color: white;
+  box-shadow: 10px solid black;
+  color: rgb(110, 109, 109);
+  border: 1px solid grey;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.btn-logout:hover {
+  color: rgb(165, 163, 163);
+  border: 1px solid rgb(165, 163, 163);
+}
+
+.greeting {
+  font-size: 20px;
+  margin-right: 30px;
+}
+
 .content {
   height: 645px;
   width: 540px;

@@ -1,4 +1,12 @@
 <template>
+  <nav class="logout" v-if="user">
+    <div class="greeting">
+      <p>Hi there {{ user.displayName }}</p>
+    </div>
+    <div>
+      <button class="btn-logout" @click="handleClick">Log out</button>
+    </div>
+  </nav>
   <div class="content">
     <div class="navbar">
       <router-link :to="{ name: 'Home' }">
@@ -16,7 +24,9 @@
         </div>
       </router-link>
       <div>
-        <button class="btn-edit">Edit Feedback</button>
+        <router-link :to="{ path: '/edit' }">
+          <button class="btn-edit">Edit Feedback</button>
+        </router-link>
       </div>
     </div>
 
@@ -60,7 +70,7 @@
                   fill="#CDD2EE"
                   fill-rule="nonzero"
                 /></svg
-              >{{ suggestion.comment }}
+              >{{ suggestion.comments_count }}
             </div>
           </div>
 
@@ -70,7 +80,7 @@
         </div>
       </section>
 
-      <!-- <section class="comments-section">
+      <section class="comments-section">
         <div class="comments-headline">4 Comments</div>
         <div class="comment-info">
           <div class="comment-img">
@@ -96,7 +106,7 @@
             </div>
           </div>
         </div>
-      </section> -->
+      </section>
 
       <section class="add-comment">
         <div class="comments-headline">Add Comment</div>
@@ -121,6 +131,8 @@
 <script>
 import { useRoute, useRouter } from "vue-router";
 import getSuggestion from "../composables/getSuggestion";
+import useLogout from "../composables/useLogout";
+import getUser from "../composables/getUser";
 
 export default {
   props: ["id"],
@@ -129,17 +141,59 @@ export default {
   setup(props) {
     const route = useRoute();
     const router = useRouter();
+    const { logout, errorLogout } = useLogout();
     const { suggestion, error, load } = getSuggestion(route.params.id);
+    const { user } = getUser();
 
     load();
 
-    return { suggestion, error };
+    const handleClick = async () => {
+      await logout();
+      if (!errorLogout.value) {
+        console.log("user logged out");
+        router.push("/welcome");
+      }
+    };
+
+    return { suggestion, error, handleClick, errorLogout, user };
   },
 };
 </script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap");
+
+.logout {
+  width: 100vw;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 -60px;
+  padding-top: 20px;
+}
+
+.btn-logout {
+  width: 70px;
+  height: 40px;
+  background-color: white;
+  box-shadow: 10px solid black;
+  color: rgb(110, 109, 109);
+  border: 1px solid grey;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.btn-logout:hover {
+  color: rgb(165, 163, 163);
+  border: 1px solid rgb(165, 163, 163);
+}
+
+.greeting {
+  font-size: 20px;
+  margin-right: 30px;
+}
 
 .content {
   width: 730px;

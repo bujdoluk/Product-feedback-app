@@ -6,6 +6,21 @@ import Roadmap from '../views/Roadmap.vue'
 import FeedbackDetail from '../views/FeedbackDetail.vue'
 import Welcome from '../views/Welcome.vue'
 
+import { projectAuth } from "../firebase/config"
+
+// auth guard
+
+const requireAuth = (to, from, next) => {
+  let user = projectAuth.currentUser
+  console.log("Current user in auth guard: ", user)
+  if (!user) {
+    next({ name: "Welcome" })
+  } else {
+    next()
+  }
+
+}
+
 const routes = [
   {
     path: '/',
@@ -20,12 +35,14 @@ const routes = [
   {
     path: '/create',
     name: 'CreateFeedback',
-    component: CreateFeedback
+    component: CreateFeedback,
+    beforeEnter: requireAuth
   },
   {
     path: '/edit',
     name: 'EditFeedback',
-    component: EditFeedback
+    component: EditFeedback,
+    beforeEnter: requireAuth
   },
   {
     path: '/roadmap',
@@ -37,6 +54,7 @@ const routes = [
     name: 'FeedbackDetail',
     component: FeedbackDetail
   },
+
 ]
 
 const router = createRouter({

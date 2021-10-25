@@ -1,4 +1,12 @@
 <template>
+  <nav class="logout" v-if="user">
+    <div class="greeting">
+      <p>Hi there {{ user.displayName }}</p>
+    </div>
+    <div>
+      <button class="btn-logout" @click="handleClick">Log out</button>
+    </div>
+  </nav>
   <div class="home">
     <div class="roadmap-navbar">
       <div class="roadmap-navbar-left">
@@ -205,6 +213,10 @@
 </template>
 
 <script>
+import { useRouter } from "vue-router";
+import useLogout from "../composables/useLogout";
+import getUser from "../composables/getUser";
+
 export default {
   name: "Roadmap",
   methods: {
@@ -212,11 +224,59 @@ export default {
       this.$router.go(-1);
     },
   },
+
+  setup() {
+    const router = useRouter();
+    const { logout, errorLogout } = useLogout();
+    const { user } = getUser();
+
+    const handleClick = async () => {
+      await logout();
+      if (!errorLogout.value) {
+        console.log("user logged out");
+        router.push("/welcome");
+      }
+    };
+
+    return { handleClick, errorLogout, user };
+  },
 };
 </script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;600;700&display=swap");
+
+.logout {
+  width: 100vw;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0 -60px;
+  padding-top: 20px;
+}
+
+.btn-logout {
+  width: 70px;
+  height: 40px;
+  background-color: white;
+  box-shadow: 10px solid black;
+  color: rgb(110, 109, 109);
+  border: 1px solid grey;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.btn-logout:hover {
+  color: rgb(165, 163, 163);
+  border: 1px solid rgb(165, 163, 163);
+}
+
+.greeting {
+  font-size: 20px;
+  margin-right: 30px;
+}
 
 .home {
   background-color: #f7f8fd;

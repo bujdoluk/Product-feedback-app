@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome container">
+  <div class="welcome">
     <div v-if="showLogin">
       <LoginForm />
       <p>
@@ -12,6 +12,11 @@
         Already registered?
         <span @click="showLogin = true">Login</span> instead
       </p>
+    </div>
+    <div>
+      <router-link :to="{ name: 'Home' }">
+        <button class="btn-feedback">Browse as Guest</button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -34,19 +39,25 @@ export default {
 
 <style >
 .welcome {
+  height: 100vh;
+  width: 100vw;
   text-align: center;
-  padding: 20px 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 /* form styles */
-.welcome form {
+form {
   width: 300px;
   margin: 20px auto;
 }
-.welcome label {
+label {
   display: block;
   margin: 20px 0 10px;
 }
-.welcome input {
+input {
   width: 100%;
   padding: 10px;
   border-radius: 20px;
@@ -55,12 +66,35 @@ export default {
   color: #999;
   margin: 10px auto;
 }
-.welcome span {
+span {
   font-weight: bold;
   text-decoration: underline;
   cursor: pointer;
 }
-.welcome button {
+button {
   margin: 20px auto;
+}
+
+.btn-feedback {
+  width: 154px;
+  height: 44px;
+  border: none;
+  margin: 14px 16px;
+  border-radius: 10px;
+  background-color: #ad1fea;
+  color: white;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 375px) {
+  .btn-feedback {
+    width: 134px;
+    height: 40px;
+  }
+}
+
+.btn-feedback:hover {
+  background-color: #c75af6;
+  cursor: pointer;
 }
 </style>
